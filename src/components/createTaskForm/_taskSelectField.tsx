@@ -1,18 +1,39 @@
-import React, { FC, ReactElement } from "react";
-import { FormControl,InputLabel,MenuItem,Select,SelectChangeEvent } from "@mui/material";
-export const TaskSelectField: FC = (): ReactElement => {
-    return <FormControl fullWidth size="small">
-        <InputLabel id="status">Status</InputLabel>
-        <Select
-            labelId="status"
-            id="status-select"
-            value=""
-            label="Status"
-            name="status"
-        >
-            <MenuItem value={10}>Ten</MenuItem>
-            <MenuItem value={20}>Twenty</MenuItem>
-            <MenuItem value={30}>Thirty</MenuItem>
-        </Select>
-  </FormControl>  
-}
+import React, { FC, ReactElement } from 'react';
+import {
+  FormControl,
+  InputLabel,
+  MenuItem,
+  Select,
+  SelectChangeEvent,
+} from '@mui/material';
+import { ISelectField } from './interfaces/ISelectField';
+export const TaskSelectField: FC<ISelectField> = (props): ReactElement => {
+  const {
+    value = '',
+    label = 'selectBox',
+    name = 'selectBox',
+    items = [{ value: '', label: 'Add items' }],
+    disabled = false,
+    onChange = (e: SelectChangeEvent) => console.log(e),
+  } = props;
+  return (
+    <FormControl fullWidth size="small">
+      <InputLabel id={`${name}-id`}>{label}</InputLabel>
+      <Select
+        labelId={`${name}-id`}
+        id={`${name}-id`}
+        value={value}
+        label={label}
+        name={name}
+        onChange={onChange}
+        disabled={disabled}
+      >
+        {items.map((item, index) => (
+          <MenuItem key={item.value + index} value={item.value}>
+            {item.label}
+          </MenuItem>
+        ))}
+      </Select>
+    </FormControl>
+  );
+};
