@@ -1,26 +1,23 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { FC, ReactElement } from 'react';
+// FC:- function componenet an interface used for functional components
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+import { ThemeProvider, CssBaseline } from '@mui/material';
+// ThemeProvider: used to set custom theme
+// CssBaseline used to reset the basic value ased on the theme we passed
+import { customTheme } from './theme/customTheme';
+import { Dashboard } from './pages/dashboard/dashboard';
+// function App() {
+//   return <h1>Hello World</h1>
+// }
+
+// we have converted function keyword declartion to arrow function
+//
+const App:FC = ():ReactElement => {
+  return (<ThemeProvider theme={customTheme}>
+    <CssBaseline>
+      <Dashboard/>
+
+    </CssBaseline>
+  </ThemeProvider>)
 }
-
 export default App;
