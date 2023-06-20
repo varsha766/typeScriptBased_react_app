@@ -1,0 +1,26 @@
+### Fetch list of tasks
+
+GET http://localhost:3200/tasks
+Content-Type: application/json
+
+### create new task
+POST http://localhost:3200/tasks
+Content-Type: application/json
+
+{
+    "title":"Create api",
+    "date":"2023-06-20T12:00:00Z",
+    "description":"Test description",
+    "priority":"normal",
+    "status":"todo"
+}
+
+### update the sttus
+
+PUT http://localhost:3200/tasks
+Content-Type: application/json
+
+{
+    "id":"162d8520-9c3e-4e17-abda-f044989afaa7",
+    "status":"inProgress"
+}
