@@ -1,0 +1,17 @@
+we can run ts file with watch mode with command:-
+tsc --watch
+watch mode also show if any error occured at the time of typing
+
+tsc --help:- used to list command of ts
+
+we can add "exclude":['file paths'] this is used to exclude file to get compiled by typescript
+if tsconfig.ts don't have exclude property explicitly defined then node_module is exclur=ded but if wee define exclude property in tsconfig.ts then we have explicitly exclude node_modules
+
+"include":[], this is to include particular file or directory to get compiled. by default all .ts file gt compiled by ts compiler. if we add include thenn we have to define all the file that need to be compiled
+"rootDir":"./src " if we mention like this then tpescript check the file in that particular directory
+"outDir":"./" this let us define output directory for all the javascript file
+"target":"es2016" this property definne the version of javascript to which our typescript will be compiled
+
+"lib":[] based on the target ts utomatically choose the libraries that it will include as dependencies. Library will include dependencies based on the target we choose
+there are various type script error check
+"sourceMap": true if it is set to true then in console we cann see its code from ts file and can set breakpoint for debugging. if it is false or commented the console will show us code from js file
