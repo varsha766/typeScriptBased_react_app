@@ -4,7 +4,7 @@ import { DataSource } from 'typeorm';
 import cors from 'cors';
 import bodyParser from 'body-parser';
 import { Task } from './src/tasks/tasks.entity';
-import { taskRouter } from './src/tasks/tasks.router';
+import { tasksRouter } from './src/tasks/tasks.router';
 
 // Instatiate express app
 const app: Express = express();
@@ -37,4 +37,4 @@ AppDataSource.initialize()
     console.log('Error during Data Source initialization', err);
   });
 
-app.use('/', taskRouter);
+app.use('/', tasksRouter);
