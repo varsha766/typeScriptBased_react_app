@@ -86,9 +86,6 @@ class TasksController {
     } catch (error) {
       return res.json({ error: 'Internal server error' }).status(500);
     }
-    // update the task
-
-    // convert to plain text
   }
 }
 export const taskController = new TasksController();
