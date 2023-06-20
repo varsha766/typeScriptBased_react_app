@@ -4,10 +4,10 @@ import { TaskCounterStatusType } from '../interfaces/ITaskCounter';
 export const emitCorrectBorderColor = (status: TaskCounterStatusType) => {
   switch (status) {
     case Status.todo:
-      return '#e57373';
+      return 'error.light';
     case Status.inProgress:
-      return '#fff176';
+      return 'warning.light';
     case Status.completed:
-      return '#4caf50';
+      return 'success.light';
   }
 };

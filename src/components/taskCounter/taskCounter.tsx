@@ -1,12 +1,15 @@
 import { Avatar, Box, Typography } from '@mui/material';
 import React, { FC, ReactElement } from 'react';
+
 import { ITaskCounter } from './interfaces/ITaskCounter';
+import PropTypes from 'prop-types';
 import { Status } from '../createTaskForm/enums/status';
 import { emitCorrectBorderColor } from './helpers/emitCorrectcBorderColor';
 import { emitCorrectLabel } from './helpers/emitCorrectlbel';
-import PropTypes from 'prop-types';
+
 export const TaskCounter: FC<ITaskCounter> = (props): ReactElement => {
-  const { count = 0, status = Status.completed } = props;
+  //  Destructure props
+  const { status = Status.completed, count = 0 } = props;
   return (
     <>
       <Box
@@ -18,14 +21,16 @@ export const TaskCounter: FC<ITaskCounter> = (props): ReactElement => {
         <Avatar
           sx={{
             backgroundColor: 'transparent',
-            order: '5px solid',
+            border: '5px solid',
             width: '96px',
             height: '96px',
             marginBottom: '16px',
             borderColor: `${emitCorrectBorderColor(status)}`,
           }}
         >
-          <Typography color="#ffffff">{count}</Typography>
+          <Typography color="#ffffff" variant="h4">
+            {count}
+          </Typography>
         </Avatar>
         <Typography
           color="#ffffff"
@@ -42,5 +47,5 @@ export const TaskCounter: FC<ITaskCounter> = (props): ReactElement => {
 
 TaskCounter.propTypes = {
   count: PropTypes.number,
-  status: PropTypes.oneOf([Status.todo, Status.completed, Status.inProgress]),
+  status: PropTypes.oneOf([Status.todo, Status.inProgress, Status.completed]),
 };
