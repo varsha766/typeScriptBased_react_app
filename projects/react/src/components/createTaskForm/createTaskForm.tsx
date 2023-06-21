@@ -8,12 +8,15 @@ import {
   Button,
   AlertTitle,
 } from '@mui/material';
+import { useMutation } from 'react-query';
 import { TaskTitleField } from './_taskTitleField';
 import { TaskDescriptionField } from './_taskDescriptionField';
 import { TaskDateField } from './_taskDateField';
 import { TaskSelectField } from './_taskSelectField';
 import { Status } from './enums/status';
 import { Priority } from './enums/priority';
+import { sendApiRequest } from '../../helpers/sendApiRequest';
+import { ICreateTask } from '../taskarea/interfaces/ICreateTask';
 export const CreateTaskForm: FC = (): ReactElement => {
   // declare component state
   // setting states for each field
@@ -22,7 +25,10 @@ export const CreateTaskForm: FC = (): ReactElement => {
   const [date, setDate] = useState<Date | null>(new Date());
   const [status, setStauts] = useState<string>(Status.todo);
   const [priority, setPriority] = useState<string>(Priority.normal);
-
+  // Create task mutation
+  const createTaskMutation = useMutation((data: ICreateTask) =>
+    sendApiRequest('http://localhost:3200/tasks', 'POST', data),
+  );
   return (
     <Box
       display="flex"
