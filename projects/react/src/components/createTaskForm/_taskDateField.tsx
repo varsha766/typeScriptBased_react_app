@@ -15,18 +15,17 @@ export const TaskDateField: FC<IDateField> = (props): ReactElement => {
 }=props
   
   return (
-      <>
-             {/* this component take a prop i.e date adpter */}
-          
-          <LocalizationProvider
-              dateAdapter={AdapterDateFns}
-          >
-              <DesktopDatePicker
-                  label="Task Date"
-                  value={value}
-                  disabled={disabled}
-                  onChange={onChange}
-         
+    <>
+      {/* this component take a prop i.e date adpter */}
+
+      <LocalizationProvider dateAdapter={AdapterDateFns}>
+        <DesktopDatePicker
+          label="Task Date"
+          inputFormat="dd/MM/yyyy"
+          value={value}
+          disabled={disabled}
+          renderInput={(params) => <TextField {...params} />}
+          onChange={onChange}
         />
       </LocalizationProvider>
     </>
