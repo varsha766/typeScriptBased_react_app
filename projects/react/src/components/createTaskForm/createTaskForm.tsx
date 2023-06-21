@@ -1,4 +1,10 @@
-import React, { FC, ReactElement, useState, useEffect } from 'react';
+import React, {
+  FC,
+  ReactElement,
+  useEffect,
+  useState,
+  useContext,
+} from 'react';
 import {
   Box,
   Typography,
@@ -8,6 +14,7 @@ import {
   Button,
   AlertTitle,
 } from '@mui/material';
+import { TaskStatusChangedContext } from '../../context';
 import { useMutation } from 'react-query';
 import { TaskTitleField } from './_taskTitleField';
 import { TaskDescriptionField } from './_taskDescriptionField';
@@ -26,6 +33,8 @@ export const CreateTaskForm: FC = (): ReactElement => {
   const [status, setStauts] = useState<string>(Status.todo);
   const [priority, setPriority] = useState<string>(Priority.normal);
   const [showSuccess, setShowSuccess] = useState<boolean>(false);
+
+  const taskUpdatedContext = useContext(TaskStatusChangedContext);
   // Create task mutation
   const createTaskMutation = useMutation((data: ICreateTask) =>
     sendApiRequest('http://localhost:3200/tasks', 'POST', data),
@@ -49,6 +58,7 @@ export const CreateTaskForm: FC = (): ReactElement => {
   useEffect(() => {
     if (createTaskMutation.isSuccess) {
       setShowSuccess(true);
+      taskUpdatedContext.toggle();
     }
     const successTimeOut = setTimeout(() => {
       setShowSuccess(false);

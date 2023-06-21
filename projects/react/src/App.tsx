@@ -7,6 +7,9 @@ import { ThemeProvider, CssBaseline } from '@mui/material';
 import { customTheme } from './theme/customTheme';
 import { Dashboard } from './pages/dashboard/dashboard';
 import { ReactQueryDevtools } from 'react-query/devtools';
+import ComposeContext from './context/composed.context';
+import { rootContext } from './context/root.context';
+
 // function App() {
 //   return <h1>Hello World</h1>
 // }
@@ -20,11 +23,12 @@ const App: FC = (): ReactElement => {
   return (
     // Incapsulating application within the query client provider
     <QueryClientProvider client={queryClient}>
-      <ThemeProvider theme={customTheme}>
-        <CssBaseline>
+      <ComposeContext components={rootContext}>
+        <ThemeProvider theme={customTheme}>
+          <CssBaseline />
           <Dashboard />
-        </CssBaseline>
-      </ThemeProvider>
+        </ThemeProvider>
+      </ComposeContext>
       <ReactQueryDevtools initialIsOpen={false} />
     </QueryClientProvider>
   );
