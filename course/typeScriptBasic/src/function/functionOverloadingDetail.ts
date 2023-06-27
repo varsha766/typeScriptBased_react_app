@@ -117,10 +117,10 @@ type TicketReserve = {
  */
 
 const ticketReserve: TicketReserve = (
-  departureDate: Date,
-  returnDateOrDepartureFrom: Date | string,
-  departureFromOrDestination: string,
-  destination?: string // optional as it will not available in second call signature
+  departureDate,
+  returnDateOrDepartureFrom,
+  departureFromOrDestination,
+  destination? // optional as it will not available in second call signature
 ) => {
   if (returnDateOrDepartureFrom instanceof Date && destination) {
     return {
@@ -157,9 +157,9 @@ console.log(ticketReserve(new Date(), "Delhi", "Mumbai"));
 // }
 
 const ticketReserve2: TicketReserve = (
-  x,
-  y,
-  z,
+  x: Date,
+  y: Date | string,
+  z: string,
   w?: string // optional as it will not available in second call signature
 ) => {
   if (y instanceof Date && w) {
