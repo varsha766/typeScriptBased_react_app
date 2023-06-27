@@ -113,5 +113,11 @@ const reserve: Reserv = (
   throw new Error("Please provide valid details to reserve a ticket");
 };
 
+reserve(new Date(), new Date(), "Delhi", "Mumbai");
+reserve(new Date(), "Delhi", "Mumbai");
+
+
 console.log(reserve(new Date(), new Date(), "Delhi", "Mumbai"));
 console.log(reserve(new Date(), "Delhi", "Mumbai"));
+
+// function overloding

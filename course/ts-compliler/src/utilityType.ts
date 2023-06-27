@@ -181,3 +181,17 @@ type UpperCaseCity = Uppercase<City>;
 type LowerCaseCity = Lowercase<City>;
 type CapitalizeCity = Capitalize<City>;
 type UnCapitalizeCity = Uncapitalize<City>;
+
+// Awaited type
+//use of getter and setter
+//use function overloading
+//if we can declare
+
+//why i am getting function rather getting class and check the code also
+// how to change it to form such code
+
+//sdk of mm
+//sdk of rupetex
+//sdk of digitall bazar
+// prperly implemented sdk
+//log stacks

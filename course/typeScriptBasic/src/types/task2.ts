@@ -88,6 +88,3 @@ const libraryType: LIBRARY = {
     },
   ],
 };
-
-
-console
