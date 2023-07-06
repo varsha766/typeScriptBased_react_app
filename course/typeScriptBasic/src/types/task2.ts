@@ -88,3 +88,14 @@ const libraryType: LIBRARY = {
     },
   ],
 };
+
+ class MyClass {
+  constructor() {}
+  static className = "Myclass";
+
+  z = "params";
+  static toString() {
+    return "[Class: MyClass]";
+  }
+}
+console.log(MyClass);

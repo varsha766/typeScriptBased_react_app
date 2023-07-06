@@ -20,7 +20,6 @@ abstract class Department {
       }
     }
   }
-
   public printHolidays() {
     if (this.holidays.length === 0) {
       return console.log("There are no holidays");
@@ -31,6 +30,7 @@ abstract class Department {
     });
   }
 }
+console.log(Department);
 
 class ItDeprt extends Department {
   protected holidays: Holidays = [];
@@ -39,6 +39,8 @@ class ItDeprt extends Department {
     super("IT Department");
   }
 }
+
+console.log(ItDeprt);
 
 class AdminDepart extends Department {
   protected holidays: Holidays = [];

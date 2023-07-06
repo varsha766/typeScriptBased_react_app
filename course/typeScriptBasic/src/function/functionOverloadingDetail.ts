@@ -120,7 +120,7 @@ const ticketReserve: TicketReserve = (
   departureDate,
   returnDateOrDepartureFrom,
   departureFromOrDestination,
-  destination? // optional as it will not available in second call signature
+  destination?: string // optional as it will not available in second call signature
 ) => {
   if (returnDateOrDepartureFrom instanceof Date && destination) {
     return {

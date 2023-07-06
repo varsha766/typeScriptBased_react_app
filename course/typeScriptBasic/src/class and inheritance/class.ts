@@ -39,7 +39,7 @@ console.log(person2);
  * constructor function are the way to parse required arguments that we want while instantiating class
  */
 
-class Person1 {
+export class Person1 {
   name = "Varsha";
   email = "varsha@gmail.com";
   constructor(name: string, email: string) {
@@ -50,8 +50,11 @@ class Person1 {
   }
 }
 
+console.log(Person1, "============");
+
 const person3 = new Person1("varsha", "varsha@gmail.com");
 const person4 = new Person1("nandani", "nandani@gmail.com");
+console.log(person3, "===========");
 
 /**
  * use of this keyword
